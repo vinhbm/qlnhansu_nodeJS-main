@@ -1,0 +1,74 @@
+<%- include('./partials/_header.ejs') %>
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">
+            Quản lý <small>Nhân viên</small>
+        </h1>
+    </div>
+</div>
+
+<!-- Thông tin Nhân viên -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thêm mới Nhân viên
+            </div>
+            <div class="panel-body">
+                <!-- Your form for adding a new employee -->
+                <form role="form" method="post" action="/nhanvien/them" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Mã Nhân viên</label>
+                        <input type="text" class="form-control" id="maNhanVien" placeholder="Nhập mã nhân viên" name="maNhanVien" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Họ và tên</label>
+                        <input type="text" class="form-control" id="hoTen" placeholder="Nhập họ và tên" name="hoTen" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày sinh</label>
+                        <input type="date" class="form-control" id="ngaySinh" name="ngaySinh" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Giới tính</label>
+                        <select class="form-control" id="gioiTinh" name="gioiTinh" required>
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="diaChi">Địa chỉ</label>
+                        <input type="text" class="form-control" id="diaChi" placeholder="Nhập địa chỉ" name="diaChi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Nhập email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="soDienThoai">Số điện thoại</label>
+                        <input type="tel" class="form-control" id="soDienThoai" placeholder="Nhập số điện thoại" name="soDienThoai" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="maPhongBan">Mã Phòng Ban</label>
+                        <input type="text" class="form-control" id="maPhongBan" placeholder="Nhập mã phòng ban" name="maPhongBan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="maChucVu">Mã Chức Vụ</label>
+                        <input type="text" class="form-control" id="maChucVu" placeholder="Nhập mã chức vụ" name="maChucVu" required>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label>Upload ảnh nhân viên</label>
+                        <input type="file" name="image">
+                    </div> -->
+                    
+                    <button type="submit" class="btn btn-success">Thêm Nhân viên</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Thông tin Nhân viên -->
+
+<%- include('./partials/_footer.ejs') %>

@@ -1,0 +1,79 @@
+<%- include('./partials/_header.ejs') %>
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">
+            Quản lý <small>Nhân viên</small>
+        </h1>
+    </div>
+</div>
+
+<!-- Thêm, Sửa, Xóa Nhân viên -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="/nhanvien/them" class="btn btn-success">Thêm Nhân viên</a>
+            <!-- <a href="/nhanvien/sua" class="btn btn-warning">Sửa Nhân viên</a>
+            <a href="/nhanvien/xoa" class="btn btn-danger">Xóa Nhân viên</a> -->
+        </div>
+    </div>
+</div>
+
+<!-- Thông tin Nhân viên -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Thông tin Nhân viên
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã Nhân viên</th>
+                                <th>Họ và tên</th>
+                                <th>Ngày sinh</th>
+                                <th>Giới tính</th>
+                                <th>Địa chỉ</th>
+                                <th>Email</th>
+                                <th>Số điện thoại</th>
+                                <th>Mã Phòng Ban</th>
+                                <th>Mã Chức Vụ</th>
+                                <th>Ảnh Nhân viên</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (nhanviens) { %>
+                                <% for (var i = 0; i < nhanviens.length; i++) { %>
+                                    <tr class="even gradeC">
+                                        <td><%= (i + 1) %></td>
+                                        <td><%= nhanviens[i].MaNhanVien %></td>
+                                        <td><%= nhanviens[i].HoTenDem %> <%= nhanviens[i].Ten %></td>
+                                        <td><%= nhanviens[i].NgaySinh %></td>
+                                        <td><%= nhanviens[i].GioiTinh %></td>
+                                        <td><%= nhanviens[i].DiaChi %></td>
+                                        <td><%= nhanviens[i].Email %></td>
+                                        <td><%= nhanviens[i].SoDienThoai %></td>
+                                        <td><%= nhanviens[i].MaPhongBan %></td>
+                                        <td><%= nhanviens[i].MaChucVu %></td>
+                                        <td><img src="<%= nhanviens[i].AnhNhanVien %>" alt="Ảnh Nhân viên" style="max-width: 100px; max-height: 100px;"></td>
+                                        <td>
+                                            <a href="/nhanvien/sua/<%= nhanviens[i].MaNhanVien %>" class="btn btn-warning">Sửa</a>
+                                            <a href="/nhanvien/xoa/?id=<%= nhanviens[i].MaNhanVien %>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this employee?')">Xóa</a>
+                                          </td>
+                                    </tr>
+                                <% } %>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--End Advanced Tables -->
+    </div>
+</div>
+
+<%- include('./partials/_footer.ejs') %>
